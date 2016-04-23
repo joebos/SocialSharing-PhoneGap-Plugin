@@ -39,6 +39,10 @@ SocialSharing.prototype.shareViaTwitter = function (message, file /* multiple no
   }
 };
 
+SocialSharing.prototype.shareViaGooglePlus = function (message, fileOrFileArray, url, successCallback, errorCallback) {
+  cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareViaFacebook"), "SocialSharing", "shareViaGooglePlus", [message, null, this._asArray(fileOrFileArray), url]);
+};
+
 SocialSharing.prototype.shareViaFacebook = function (message, fileOrFileArray, url, successCallback, errorCallback) {
   cordova.exec(successCallback, this._getErrorCallback(errorCallback, "shareViaFacebook"), "SocialSharing", "shareViaFacebook", [message, null, this._asArray(fileOrFileArray), url]);
 };
